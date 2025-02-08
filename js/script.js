@@ -5,6 +5,7 @@ function convert() {
 
     var convertedValue
     var resultUnit
+    var explanation = '';
 
     switch (fromUnit) {
         case 'C' :
@@ -18,9 +19,8 @@ function convert() {
                 convertedValue = temperature 
                 resultUnit = 'C'
             }
-            break;
 
-            case "F" :
+        case "F" :
             if (toUnit === 'C') {
                 convertedValue = (temperature - 32) * 5/9
                 resultUnit = 'C'
@@ -31,20 +31,36 @@ function convert() {
                 convertedValue = temperature
                 resultUnit = 'F'
             }
-            break;
 
-            case "K" :
+        case "K" :
             if (toUnit === 'C') {
                 convertedValue = temperature - 273.15
                 resultUnit = 'C'
-            } else if (toUnit === 'K') {
+            } else if (toUnit === 'F') {
                 convertedValue = (temperature - 273.15) * 9/5 + 32
-                resultUnit = 'K'
+                resultUnit = 'F'
             } else {
                 convertedValue = temperature 
                 resultUnit = 'K'
             }
-            break;
-     }
+        break;
+    }
+
+    if (fromUnit === 'C' && toUnit === 'F') {
+        explanation = temperature + "°C * (9/5) + 32 = " + convertedValue.toFixed(2) + "°F";
+    } else if (fromUnit === 'C' && toUnit === 'K') {
+        explanation = temperature + "°C + 273.15 = " + convertedValue.toFixed(2) + "°K";
+    } else if (fromUnit === 'F' && toUnit === 'C') {
+        explanation = "(" + temperature + "°F - 32) * (5/9) = " + convertedValue.toFixed(2) + "°C";
+    } else if (fromUnit === 'F' && toUnit === 'K') {
+        explanation = "(" + temperature + "°F - 32) * (5/9) + 273.15 = " + convertedValue.toFixed(2) + "K";
+    } else if (fromUnit === 'K' && toUnit === 'C') {
+        explanation = temperature + "K - 273.15 = " + convertedValue.toFixed(2) + "°C";
+    } else if (fromUnit === 'K' && toUnit === 'F') {
+        explanation = "(" + temperature + "K - 273.15) * (9/5) + 32 = " + convertedValue.toFixed(2) + "°F";
+    }
+    
+    console.log(explanation);
+    document.getElementById('explanation').innerText = explanation;
     document.getElementById('result').value = convertedValue.toFixed(2) + ' ' + resultUnit;
 }
