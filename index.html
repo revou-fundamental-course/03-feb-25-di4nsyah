@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\style.css">
     <title>Tempy</title>
 </head>
 <body>
     <div class="converter">
         <h2>Konverter Suhu</h2>
+        <p>Selamat datang di Tempy! Konversi suhu jadi lebih mudah dan cepat. Ubah Celsius, Fahrenheit, dan Kelvin hanya dalam satu klik!"</p>
+
         <label for="fromUnit">From:</label>
         <select id="fromUnit">
-            <option value="Celcius">Celcius</option>
-            <option value="Fahrenheit">Fahrenheit</option>
-            <option value="Kelvin">Kelvin</option>
+            <option value="C">Celcius</option>
+            <option value="F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
         </select>
 
         <label for="toUnit">To:</label>
         <select id="toUnit">
-            <option value="Celcius">Celcius</option>
-            <option value="Fahrenheit">Fahrenheit</option>
-            <option value="Kelvin">Kelvin</option>
+            <option value="C">Celcius</option>
+            <option value="F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
         </select>
 
-        <label for="temp">Temperature</label>
-        <input type="number" id="temp" placeholder="Enter Temperature"> 
+        <label for="temperature">Temperature
+        <input type="number" id="temperature" placeholder="input Temperature"> 
         <button onclick="convert()">Convert</button>
 
-        <label for="result">Hasil:</label>
+        <label for="result">Result</label>
+        <input type="text" id="result" readonly>
     </div>
+
+    <script src="js\script.js"></script>
 </body>
 </html>
