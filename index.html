@@ -7,29 +7,32 @@
     <title>Tempy</title>
 </head>
 <body>
-    <div class="converter">
+    <div class="MainPage">
         <h1>Temperature Converter</h1>
 
-        <label for="fromUnit">From:</label>
-        <select id="fromUnit">
-            <option value="C">Celcius</option>
-            <option value="F">Fahrenheit</option>
-            <option value="K">Kelvin</option>
-        </select>
+        <div class="content">
+            <label for="fromUnit">From:</label>
+            <select id="fromUnit">
+                <option value="C">Celcius</option>
+                <option value="F">Fahrenheit</option>
+                <option value="K">Kelvin</option>
+            </select>
 
-        <label for="toUnit">To:</label>
-        <select id="toUnit">
-            <option value="C">Celcius</option>
-            <option value="F">Fahrenheit</option>
-            <option value="K">Kelvin</option>
-        </select>
+            <label for="toUnit">To:</label>
+            <select id="toUnit">
+                <option value="C">Celcius</option>
+                <option value="F">Fahrenheit</option>
+                <option value="K">Kelvin</option>
+            </select>
+        </div>
 
-        <label for="temperature">Temperature
-        <input type="number" id="temperature" placeholder="input Temperature"> 
+        <label for="temperature" class="result">Temperature</label>
+        <input type="number" id="temperature" placeholder="input Temperature" class="result-bar">
+        
+        <label for="result" class="result">Result</label>
+        <input type="text" id="result" readonly class="result-bar">
+
         <button onclick="convert()">Convert</button>
-
-        <label for="result">Result</label>
-        <input type="text" id="result" readonly>
 
         <label for="explanation">Explanation</label>
         <p id="explanation"></p>
