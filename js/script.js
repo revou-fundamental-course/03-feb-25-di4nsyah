@@ -1,7 +1,15 @@
 function convert() {
     var fromUnit = document.getElementById('fromUnit').value;
     var toUnit = document.getElementById('toUnit').value;
-    var temperature = parseFloat(document.getElementById('temperature').value)
+    var temperature = parseFloat(document.getElementById('temperature').value);
+    
+    var validationMessage = document.getElementById('validationMessage');
+    validationMessage.innerText = '';
+
+    if (isNaN(temperature)) {
+        validationMessage.innerText = 'Please enter a temperature value.';
+        return;
+    }
 
     var convertedValue
     var resultUnit
@@ -19,6 +27,7 @@ function convert() {
                 convertedValue = temperature 
                 resultUnit = 'C'
             }
+            break;
 
         case "F" :
             if (toUnit === 'C') {
@@ -31,6 +40,7 @@ function convert() {
                 convertedValue = temperature
                 resultUnit = 'F'
             }
+            break;
 
         case "K" :
             if (toUnit === 'C') {
@@ -44,6 +54,11 @@ function convert() {
                 resultUnit = 'K'
             }
         break;
+
+        default:
+            convertedValue = NaN;
+            resultUnit = '';
+            break;
     }
 
     if (fromUnit === 'C' && toUnit === 'F') {
